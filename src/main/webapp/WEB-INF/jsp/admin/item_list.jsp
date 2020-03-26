@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,16 +9,16 @@
     <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- bootstrap framework -->
-    <link href="admin/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/admin/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- main stylesheet -->
-    <link href="admin/css/main.min.css" rel="stylesheet" media="screen" id="mainCss">
+    <link href="${pageContext.request.contextPath}/admin/css/main.min.css" rel="stylesheet" media="screen" id="mainCss">
     <!-- elegant icons -->
-    <link href="admin/css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet" media="screen">
     <!-- datepicker -->
-    <link href="admin/css/datepicker3.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/admin/css/datepicker3.css" rel="stylesheet" media="screen">
     <!-- jBox -->
-    <link href="admin/css/jbox.css" rel="stylesheet" media="screen">
-    <link href="admin/css/noticeborder.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/admin/css/jbox.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/admin/css/noticeborder.css" rel="stylesheet" media="screen">
 
 </head>
 <body class="side_menu_active side_menu_expanded">
@@ -29,12 +29,13 @@
         <div class="container-fluid">
             <!--logo-->
             <div class="brand_section">
-                <a href="#"><img src="admin/picture/logo01.png" alt="site_logo" width="108" height="40" style="margin-top: 5px"></a>
+                <a href="#"><img src="${pageContext.request.contextPath}/admin/picture/logo01.png" alt="site_logo"
+                                 width="108" height="40" style="margin-top: 5px"></a>
             </div>
             <div class="header_user_actions dropdown">
                 <div data-toggle="dropdown" class="dropdown-toggle user_dropdown">
                     <div class="user_avatar">
-                        <img src="admin/picture/head01.png" width="38" height="38">
+                        <img src="${pageContext.request.contextPath}/admin/picture/head01.png" width="38" height="38">
                     </div>
                     <span class="caret"></span>
                 </div>
@@ -57,12 +58,16 @@
                         <div class="row">
                             <!--按名称查询-->
                             <div class="col-md-2">
-                                <input style="height:35px" id="search_item_name" type="text" class="form-control input-sm" placeholder="输入名称" name="item_name" value="">
+                                <input style="height:35px" id="search_item_name" type="text"
+                                       class="form-control input-sm" placeholder="输入名称" name="item_name" value="">
                             </div>
 
                             <!--按类型或者平台选择-->
                             <div class="col-md-1">
-                                <button style="width:120px" id="search_tagsAndPlatform_btn" type="button" data-toggle="modal" data-target="#tagsAndplatfromLayer"  class="btn btn-primary">选择标签或平台</button>
+                                <button style="width:120px" id="search_tagsAndPlatform_btn" type="button"
+                                        data-toggle="modal" data-target="#tagsAndplatfromLayer" class="btn btn-primary">
+                                    选择标签或平台
+                                </button>
                             </div>
 
                             <div class="col-md-9">
@@ -76,7 +81,8 @@
                     <!-- 查询结果显示 -->
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-yuk2 toggle-arrow-tiny" id="footable_demo" data-filter="#textFilter" data-page-size="10">
+                            <table class="table table-yuk2 toggle-arrow-tiny" id="footable_demo"
+                                   data-filter="#textFilter" data-page-size="10">
                                 <thead>
                                 <tr>
                                     <!--描述：游戏数据标签-->
@@ -98,78 +104,58 @@
                                     <th>状态</th>
                                 </tr>
                                 </thead>
-
-                                <tbody id="item_info_date">
-                                <tr>
-                                    <td>10001</td>
-                                    <td>古墓丽影：崛起</td>
-                                    <td>角色扮演 冒险 动作</td>
-                                    <td>win mac linux</td>
-                                    <td>无折扣</td>
-                                    <td>379</td>
-                                    <td>cap_image_shadow.png</td>
-                                    <td>2018-09-13</td>
-                                    <td>热门</td>
-                                    <td>畅销</td>
-                                    <td>否</td>
-                                    <td>否</td>
-                                    <td>否</td>
-                                    <td>新品</td>
-                                    <td>上架</td>
-                                    <td>
-                                        <a herf="#" id="edit_btn" class="btn btn-xs btn-info" data-toggle="modal" data-target="#editLayer" onclick="editItems()">修改</a>
-                                        <a herf="#" id="del_btn" class="btn btn-xs btn-danger" onclick="deleteItems()">下架</a>
-                                    </td>
-                                </tr>
-                                </tbody>
-
-                                <tbody id="item_info_date">
-                                <tr>
-                                    <td>10001</td>
-                                    <td>古墓丽影：崛起</td>
-                                    <td>角色扮演 冒险 动作</td>
-                                    <td>win mac linux</td>
-                                    <td>无折扣</td>
-                                    <td>379</td>
-                                    <td>cap_image_shadow.png</td>
-                                    <td>2018-09-13</td>
-                                    <td>热门</td>
-                                    <td>畅销</td>
-                                    <td>否</td>
-                                    <td>否</td>
-                                    <td>否</td>
-                                    <td>新品</td>
-                                    <td>上架</td>
-                                    <td>
-                                        <a herf="#" id="edit_btn" class="btn btn-xs btn-info" data-toggle="modal" data-target="#editLayer" onclick="editItems()">修改</a>
-                                        <a herf="#" id="del_btn" class="btn btn-xs btn-danger onclick="deleteItems()">下架</a>
-                                    </td>
-                                </tr>
-                                </tbody>
-
-                                <tbody id="item_info_date">
-                                <tr>
-                                    <td>10001</td>
-                                    <td>古墓丽影：崛起</td>
-                                    <td>角色扮演 冒险 动作</td>
-                                    <td>win mac linux</td>
-                                    <td>无折扣</td>
-                                    <td>379</td>
-                                    <td>cap_image_shadow.png</td>
-                                    <td>2018-09-13</td>
-                                    <td>热门</td>
-                                    <td>畅销</td>
-                                    <td>否</td>
-                                    <td>否</td>
-                                    <td>否</td>
-                                    <td>新品</td>
-                                    <td>上架</td>
-                                    <td>
-                                        <a herf="#" id="edit_btn" class="btn btn-xs btn-info" data-toggle="modal" data-target="#editLayer" onclick="editItems()">修改</a>
-                                        <a herf="#" id="del_btn" class="btn btn-xs btn-danger onclick="deleteItems()">下架</a>
-                                    </td>
-                                </tr>
-                                </tbody>
+                               <%-- <c:forEach items="${itemList}" var="item">
+                                    <tbody id="item_info_date">
+                                    <tr>
+                                        <td>${item.item_id}</td>
+                                        <td>${item.item_name}</td>
+                                        <td class="item_tag_name">${item.item_tagids}</td>
+                                        <td class="item_platform_name">${item.item_platform}</td>
+                                        <td>${item.item_discount == '0'? '无折扣':item.item_discount}</td>
+                                        <td>${item.item_original_price}</td>
+                                        <td>${item.item_cap_image}</td>
+                                        <td>${item.item_release_date}</td>
+                                        <td>${item.is_hot == true ?'热门':'否'}</td>
+                                        <td>${item.is_hot_sale == true ?'热销':'否'}</td>
+                                        <td>${item.is_free == true ?'免费':'否'}</td>
+                                        <td>${item.is_specials == true ?'特价':'否'}</td>
+                                        <td>${item.is_upcoming == true ?'即将推出':'否'}</td>
+                                        <td>${item.is_new == true ?'新品':'否'}</td>
+                                        <td>${item.is_enable == true ?'上架':'已下架'}</td>
+                                        <td>
+                                            <a herf="#" id="edit_btn" class="btn btn-xs btn-info" data-toggle="modal"
+                                               data-target="#editLayer" onclick="editItems()">修改</a>
+                                            <a herf="#" id="del_btn" class="btn btn-xs btn-danger"
+                                               onclick="deleteItems()">下架</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </c:forEach>--%>
+                                <c:forEach items="${itemList }" var="item">
+                                    <tbody id="item_info_date">
+                                    <tr>
+                                        <td>${item.item_id }</td>
+                                        <td>${item.item_name }</td>
+                                        <td class="item_tag_name">${item.item_tagids }</td>
+                                        <td class="item_platform_name">${item.item_platform }</td>
+                                        <td>${item.item_discount == '0' ? '无折扣' : item.item_discount }</td>
+                                        <td>${item.item_original_price }</td>
+                                        <td>${item.item_cap_image }</td>
+                                        <td>${item.item_release_date }</td>
+                                        <td>${item.is_hot == true ? '热门' :  '否' }</td>
+                                        <td>${item.is_hot_sale == true ? '热销' :  '否'  }</td>
+                                        <td>${item.is_free == true ? '免费' :  '否'  }</td>
+                                        <td>${item.is_specials == true ? '特价' :  '否'  }</td>
+                                        <td>${item.is_upcoming == true ? '即将推出' :  '否'  }</td>
+                                        <td>${item.is_new == true ? '新品' :  '否'  }</td>
+                                        <td>${item.is_enable == true ? '上架' :  '已下架'  }</td>
+                                        <td><!--   -->
+                                            <a herf="#" id="edit_btn" class="btn btn-xs btn-info" data-toggle="modal" data-target="#editLayer" onclick="editItems(${item.item_id})">修改</a>
+                                            <a herf="#" id="del_btn" class="btn btn-xs ${item.is_enable == true ? 'btn-warning' : 'btn-danger' }" onclick="deleteItems(${item.item_id}, ${item.is_enable})">${item.is_enable == true ? '下架' : '上架' }</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </c:forEach>
 
                                 <tfoot class="hide-if-no-paging">
                                 <tr>
@@ -191,7 +177,8 @@
         <div class="modal-dialog modal-content">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title">添加游戏</h4>
                 </div>
                 <div class="modal-body">
@@ -201,7 +188,8 @@
                         <div class="form-group">
                             <label for="add_item_id" class="col-sm-2 control-label">id</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="add_item_id" placeholder="id" name="item_id">
+                                <input type="text" class="form-control" id="add_item_id" placeholder="id"
+                                       name="item_id">
                             </div>
                         </div>
 
@@ -209,7 +197,8 @@
                         <div class="form-group">
                             <label for="add_item_name" class="col-sm-2 control-label">游戏名称</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="add_item_name" placeholder="游戏名称" name="item_name">
+                                <input type="text" class="form-control" id="add_item_name" placeholder="游戏名称"
+                                       name="item_name">
                             </div>
                         </div>
 
@@ -241,7 +230,8 @@
                         <div class="form-group">
                             <label for="add_item_discount" class="col-sm-2 control-label">折扣</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="add_item_discount" placeholder="折扣" name="item_discount">
+                                <input type="text" class="form-control" id="add_item_discount" placeholder="折扣"
+                                       name="item_discount">
                             </div>
                         </div>
 
@@ -249,7 +239,8 @@
                         <div class="form-group">
                             <label for="add_item_original_price" class="col-sm-2 control-label">原价</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="add_item_original_price" placeholder="原价" name="item_original_price">
+                                <input type="text" class="form-control" id="add_item_original_price" placeholder="原价"
+                                       name="item_original_price">
                             </div>
                         </div>
 
@@ -300,7 +291,8 @@
         <div class="modal-dialog modal-content">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title">修改游戏</h4>
                 </div>
                 <div class="modal-body">
@@ -313,7 +305,8 @@
                         <div class="form-group">
                             <label for="edit_item_name" class="col-sm-2 control-label">游戏名称</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="edit_item_name" placeholder="游戏名称" name="item_name">
+                                <input type="text" class="form-control" id="edit_item_name" placeholder="游戏名称"
+                                       name="item_name">
                             </div>
                         </div>
 
@@ -345,7 +338,8 @@
                         <div class="form-group">
                             <label for="edit_item_discount" class="col-sm-2 control-label">折扣</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="edit_item_discount" placeholder="折扣" name="item_discount">
+                                <input type="text" class="form-control" id="edit_item_discount" placeholder="折扣"
+                                       name="item_discount">
                             </div>
                         </div>
 
@@ -353,7 +347,8 @@
                         <div class="form-group">
                             <label for="edit_item_original_price" class="col-sm-2 control-label">原价</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="edit_item_original_price" placeholder="原价" name="item_original_price">
+                                <input type="text" class="form-control" id="edit_item_original_price" placeholder="原价"
+                                       name="item_original_price">
                             </div>
                         </div>
 
@@ -378,7 +373,8 @@
                             <label for="edit_item_release_date" class="col-sm-2 control-label">发售日期</label>
                             <div class="col-sm-10">
                                 <div class="input-group date" id="dp_component">
-                                    <input type="text" class="form-control" placeholder="发售日期" id="edit_item_release_date" name="item_release_date" value="">
+                                    <input type="text" class="form-control" placeholder="发售日期"
+                                           id="edit_item_release_date" name="item_release_date" value="">
                                     <span class="input-group-addon"><i class="icon_calendar"></i></span>
                                 </div>
                             </div>
@@ -411,7 +407,8 @@
         <div class="modal-dialog modal-content">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title">选择标签或者平台</h4>
                 </div>
                 <div class="modal-body">
@@ -445,7 +442,9 @@
                     </form><!--描述：选择标签或平台的查询条件弹出层 表单 end-->
                 </div>
                 <div class="modal-footer">
-                    <button id="search_cancel_btn" type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
+                    <button id="search_cancel_btn" type="button" class="btn btn-default btn-sm" data-dismiss="modal">
+                        取消
+                    </button>
                     <button type="button" class="btn btn-primary btn-sm" onclick="">确认选择</button>
                 </div>
             </div>
@@ -480,41 +479,41 @@
 
 <!-- 引入第三方js文件 -->
 <!-- jQuery -->
-<script src="admin/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jquery.min.js"></script>
 <!-- jQuery Cookie -->
-<script src="admin/js/jquerycookie.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jquerycookie.min.js"></script>
 <!-- Bootstrap Framework -->
-<script src="admin/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/bootstrap.min.js"></script>
 <!-- retina images -->
-<script src="admin/js/retina.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/retina.min.js"></script>
 <!-- switchery -->
-<script src="admin/js/switchery.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/switchery.min.js"></script>
 <!-- typeahead -->
-<script src="admin/js/typeahead.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/typeahead.bundle.min.js"></script>
 <!-- fastclick -->
-<script src="admin/js/fastclick.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/fastclick.min.js"></script>
 <!-- match height -->
-<script src="admin/js/jquery.matchheight-min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jquery.matchheight-min.js"></script>
 <!-- scrollbar -->
-<script src="admin/js/jquery.mcustomscrollbar.concat.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jquery.mcustomscrollbar.concat.min.js"></script>
 <!-- moment.js (date library) -->
-<script src="admin/js/moment-with-langs.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/moment-with-langs.min.js"></script>
 <!-- Yukon Admin functions -->
-<script src="admin/js/yukon_all.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/yukon_all.min.js"></script>
 <!-- page specific plugins -->
 <!-- footable -->
-<script src="admin/js/footable.min.js"></script>
-<script src="admin/js/footable.paginate.min.js"></script>
-<script src="admin/js/footable.filter.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/footable.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/footable.paginate.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/footable.filter.min.js"></script>
 <!-- datepicker -->
-<script src="admin/js/bootstrap-datepicker.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/bootstrap-datepicker.js"></script>
 <!-- jBox -->
-<script src="admin/js/jbox.min.js"></script>
+<script src="${pageContext.request.contextPath}/admin/js/jbox.min.js"></script>
 
 <!-- js代码 -->
 <script type="text/javascript">
     //在页面加载完毕后执行
-    $(function() {
+    $(function () {
         //加载第三方组件
         //footable
         yukon_footable.goodslist();
@@ -522,7 +521,35 @@
         yukon_datepicker.p_forms_extended();
 
 
+        init();
     })
+
+    function init() {
+        $(".item_tag_name").each(function () {
+            //获取td内容拆分
+            var ids = $(this).html();
+            var idArray = ids.split("#");
+            //获取divObj
+            var divObj = $(this);
+            //使用ajax发送数据
+            $.ajax({
+                type:"POST",
+                url:"${pageContext.request.contextPath}/admin/items/adminTags",
+                contentType:"application/json",
+                dataType:"json",
+                data:JSON.stringify(idArray),
+                success:function (data) {
+                    //alert(data[0]);
+                    var str = "";
+                    for (var i = 0;i <  data.length;i++){
+                        str += data[i]+" ";
+                    }
+                    $(divObj).html(str);
+                }
+            });
+        })
+    }
+    
 
 </script>
 </body>
